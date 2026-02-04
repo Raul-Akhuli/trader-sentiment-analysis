@@ -1,52 +1,55 @@
 # Trader Performance vs Market Sentiment
+Data Science Intern Assignment – Primetrade.ai
 
 ## Objective
-Analyze how Bitcoin market sentiment (Fear vs Greed) impacts trader behavior and performance on Hyperliquid.
-
----
+Analyze how Bitcoin market sentiment (Fear vs Greed) impacts trader behavior and daily performance on Hyperliquid, and extract actionable trading insights.
 
 ## Datasets
-1. **Bitcoin Fear & Greed Index**
-   - Daily market sentiment classification
+1. Bitcoin Fear & Greed Index  
+   - Daily market sentiment classification (Fear / Greed)
 
-2. **Hyperliquid Trader Data**
-   - Trade-level data including account, side, size, timestamp, and PnL
-
----
+2. Hyperliquid Trader Data  
+   - Trade-level data including account, side, size (USD), timestamp (IST), and closed PnL
 
 ## Methodology
-1. Cleaned and standardized column names
-2. Converted timestamps to daily level (IST, day-first format)
-3. Aggregated trade-level data to daily trader metrics:
-   - Daily PnL
-   - Trade frequency
-   - Win rate
-   - Average trade size
-   - Long/Short ratio
-4. Merged trader metrics with daily sentiment
-5. Compared trader behavior and performance across Fear vs Greed days
-6. Performed trader segmentation:
-   - Frequent vs Infrequent traders
-   - Consistent vs Inconsistent traders
-
----
+- Cleaned and standardized column names
+- Converted timestamps to daily level using IST (day-first format)
+- Aggregated trade-level data into daily trader metrics:
+  - Daily PnL
+  - Trade frequency
+  - Win rate
+  - Average trade size
+  - Long/Short ratio
+- Merged trader metrics with daily market sentiment
+- Compared trader behavior and performance across Fear vs Greed regimes
+- Segmented traders based on:
+  - Trading frequency (Frequent vs Infrequent)
+  - Performance consistency (Consistent vs Inconsistent)
 
 ## Key Insights
-- Trader PnL volatility is higher during Fear periods
-- Frequent traders perform relatively better during Greed days
-- Long bias increases during Greed, indicating higher risk appetite
+1. Performance Volatility  
+   - Daily PnL volatility is significantly higher during Fear periods, reflecting unstable market conditions.
 
----
+2. Behavioral Shift  
+   - Traders place fewer but larger trades during Fear days.  
+   - Trade frequency and long bias increase during Greed periods, indicating higher risk appetite.
 
-## Strategy Recommendations
-- Reduce trade frequency and risk exposure during Fear days
-- Allow higher activity during Greed days only for consistent traders
+3. Trader Segments  
+   - Frequent traders outperform infrequent traders during Greed days.  
+   - Consistent traders experience smaller drawdowns during Fear periods.
 
----
+## Actionable Strategy Recommendations
+1. During Fear days  
+   - Reduce trade frequency  
+   - Focus only on high-confidence setups to control downside risk
+
+2. During Greed days  
+   - Increase trading activity selectively for consistent traders  
+   - Monitor long exposure to avoid excessive directional risk
 
 ## How to Run
-```bash
-pip install -r requirements.txt
-### Conclusion
-Market sentiment strongly impacts both trader behavior and performance. Incorporating sentiment-aware rules can help reduce drawdowns and improve overall trading outcomes.
+Install dependencies, which are in the txt file
+And after downloading the dataset, you can add it as a link
+Then run the ipynb file
+
 
