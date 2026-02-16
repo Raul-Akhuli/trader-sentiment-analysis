@@ -4,16 +4,24 @@ Data Science Intern Assignment – Primetrade.ai
 ## Objective
 Analyze how Bitcoin market sentiment (Fear vs Greed) impacts trader behavior and daily performance on Hyperliquid, and extract actionable trading insights.
 
-## Datasets
-1. Bitcoin Fear & Greed Index  
+
+---
+
+## 📊 Datasets
+
+1. **Bitcoin Fear & Greed Index**
    - Daily market sentiment classification (Fear / Greed)
 
-2. Hyperliquid Trader Data  
-   - Trade-level data including account, side, size (USD), timestamp (IST), and closed PnL
+2. **Hyperliquid Trader Data**
+   - Trade-level data including account, side, size (USD), timestamp, leverage, closed PnL
 
-## Methodology
+---
+
+## 🔎 Methodology
+
+### 1️⃣ Data Preparation
 - Cleaned and standardized column names
-- Converted timestamps to daily level using IST (day-first format)
+- Converted timestamps to daily level
 - Aggregated trade-level data into daily trader metrics:
   - Daily PnL
   - Trade frequency
@@ -21,35 +29,80 @@ Analyze how Bitcoin market sentiment (Fear vs Greed) impacts trader behavior and
   - Average trade size
   - Long/Short ratio
 - Merged trader metrics with daily market sentiment
-- Compared trader behavior and performance across Fear vs Greed regimes
-- Segmented traders based on:
-  - Trading frequency (Frequent vs Infrequent)
-  - Performance consistency (Consistent vs Inconsistent)
 
-## Key Insights
-1. Performance Volatility  
-   - Daily PnL volatility is significantly higher during Fear periods, reflecting unstable market conditions.
+---
 
-2. Behavioral Shift  
-   - Traders place fewer but larger trades during Fear days.  
-   - Trade frequency and long bias increase during Greed periods, indicating higher risk appetite.
+### 2️⃣ Sentiment-Based Analysis
+- Compared PnL, win rate, and trading behavior across:
+  - Fear days
+  - Greed days
+- Evaluated behavioral shifts in:
+  - Trade frequency
+  - Leverage usage
+  - Position bias
 
-3. Trader Segments  
-   - Frequent traders outperform infrequent traders during Greed days.  
-   - Consistent traders experience smaller drawdowns during Fear periods.
+---
 
-## Actionable Strategy Recommendations
-1. During Fear days  
-   - Reduce trade frequency  
-   - Focus only on high-confidence setups to control downside risk
+### 3️⃣ Trader Segmentation (Bonus – Clustering)
 
-2. During Greed days  
-   - Increase trading activity selectively for consistent traders  
-   - Monitor long exposure to avoid excessive directional risk
+Created trader-level aggregated metrics:
+
+- Average PnL
+- PnL volatility
+- Average leverage
+- Total trades
+- Average position size
+- Long exposure ratio
+
+Applied:
+- StandardScaler
+- KMeans clustering (k=3)
+
+Identified trader archetypes:
+- Aggressive high-leverage traders
+- Conservative low-volatility traders
+- High-frequency moderate-risk traders
+
+---
+
+## 🤖 Bonus: Streamlit Dashboard
+
+Interactive dashboard includes:
+- Daily PnL visualization
+- Sentiment-based filtering
+- Cluster-based analysis
+
+---
+
+## 💡 Key Insights
+
+1. PnL volatility is significantly higher during Fear periods.
+2. Traders increase long bias and frequency during Greed regimes.
+3. High-leverage traders experience extreme volatility during Fear days.
+4. Conservative traders show better risk-adjusted performance.
+
+---
+
+## 🎯 Strategy Recommendations
+
+1. During Fear:
+   - Reduce leverage
+   - Trade selectively
+   - Avoid overexposure
+
+2. During Greed:
+   - Increase participation for consistent traders
+   - Monitor directional bias
+
+---
+
+## ⚙️ How to Run
+
 
 ## How to Run
 Install dependencies, which are in the txt file
 And after downloading the dataset, you can add it as a link
 Then run the ipynb file
+to visualize run streamlit run app.py
 
 
